@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import Notfound from "./pages/Notfound";
+import Header from "./components/Header.jsx";
 import Button from "./components/Button.jsx";
 
 import { getEmotionImage } from "./util/get-emotion-image";
@@ -16,6 +17,11 @@ function App() {
 
   return (
     <>
+      <Header
+        title={"Tmp_Title"}
+        leftChild={<Button text={"Left"} />}
+        rightChild={<Button text={"Right"} />}
+      />
       <Button
         text="Test Button"
         onClick={() => {
