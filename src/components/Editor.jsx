@@ -3,6 +3,7 @@ import EmotionItem from "../components/EmotionItem.jsx";
 import Button from "../components/Button.jsx";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const emotionList = [
   { emotionId: 1, emotionName: "완전 좋음" },
@@ -21,12 +22,13 @@ const getStringedDate = (targetDate) => {
   return `${year}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`;
 };
 
-const Editor = () => {
+const Editor = ({ onSubmit }) => {
   const [input, setInput] = useState({
     createdDate: new Date(),
     emotionId: 3,
     content: "",
   });
+  const nav = useNavigate();
 
   const onChangeInput = (e) => {
     let name = e.target.name;
@@ -40,6 +42,10 @@ const Editor = () => {
       ...input,
       [name]: value,
     });
+  };
+
+  const onClickSubmitButton = () => {
+    onSubmit(input);
   };
 
   return (
@@ -83,8 +89,12 @@ const Editor = () => {
         />
       </section>
       <section className="button_section">
-        <Button text={"취소하기"} />
-        <Button text={"작성완료"} type={"POSITIVE"} />
+        <Button onClick={() => nav("/", { replace: true })} text={"취소하기"} />
+        <Button
+          onClick={onClickSubmitButton}
+          text={"작성완료"}
+          type={"POSITIVE"}
+        />
       </section>
     </div>
   );
