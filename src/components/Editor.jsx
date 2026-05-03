@@ -2,16 +2,9 @@ import "./Editor.css";
 import EmotionItem from "../components/EmotionItem.jsx";
 import Button from "../components/Button.jsx";
 
+import { emotionList } from "../util/constants.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-const emotionList = [
-  { emotionId: 1, emotionName: "완전 좋음" },
-  { emotionId: 2, emotionName: "좋음" },
-  { emotionId: 3, emotionName: "그럭저럭" },
-  { emotionId: 4, emotionName: "나쁨" },
-  { emotionId: 5, emotionName: "끔찍함" },
-];
 
 // 날짜 : YYYY-MM-DD 형식으로 반환
 const getStringedDate = (targetDate) => {

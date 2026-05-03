@@ -1,10 +1,29 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import Button from "../components/Button.jsx";
+import Viewer from "../components/Viewer.jsx";
 
 const Diary = () => {
   const params = useParams();
-  console.log(params);
+  const nav = useNavigate();
 
-  return <div>{params.id}번 일기입니다.</div>;
+  return (
+    <div>
+      <Header
+        title={"yyyy-mm-dd 기록"}
+        leftChild={
+          <Button
+            text={"< 뒤로 가기"}
+            onClick={() => {
+              nav(-1);
+            }}
+          />
+        }
+        rightChild={<Button text={"수정하기"} onClick={() => {}} />}
+      />
+      <Viewer />
+    </div>
+  );
 };
 
 export default Diary;
