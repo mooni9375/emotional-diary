@@ -84,7 +84,7 @@ function App() {
   return (
     <>
       <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext
+        <DiaryDispatchContext.Provider
           value={{
             onCreate,
             onUpdate,
@@ -99,7 +99,7 @@ function App() {
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="*" element={<Notfound />} />
           </Routes>
-        </DiaryDispatchContext>
+        </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
     </>
   );
