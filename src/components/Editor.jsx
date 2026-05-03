@@ -3,17 +3,9 @@ import EmotionItem from "../components/EmotionItem.jsx";
 import Button from "../components/Button.jsx";
 
 import { emotionList } from "../util/constants.js";
+import { getStringedDate } from "../util/get-stringed-date.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-// 날짜 : YYYY-MM-DD 형식으로 반환
-const getStringedDate = (targetDate) => {
-  let year = targetDate.getFullYear();
-  let month = targetDate.getMonth() + 1;
-  let date = targetDate.getDate();
-
-  return `${year}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`;
-};
 
 const Editor = ({ initData, onSubmit }) => {
   const [input, setInput] = useState({
