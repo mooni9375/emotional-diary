@@ -31,6 +31,7 @@ const Editor = ({ initData, onSubmit }) => {
 
   useEffect(() => {
     if (initData) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setInput({
         ...initData,
         createdDate: new Date(Number(initData.createdDate)),
