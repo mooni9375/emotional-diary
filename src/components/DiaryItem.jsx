@@ -3,17 +3,17 @@ import Button from "./Button.jsx";
 
 import { getEmotionImage } from "../util/get-emotion-image.js";
 
-const DiaryItem = () => {
-  const emotionId = 1;
-
+const DiaryItem = ({ id, emotionId, createdDate, content }) => {
   return (
     <div className="DiaryItem">
       <div className={`img_section img_section_${emotionId}`}>
         <img src={getEmotionImage(emotionId)} />
       </div>
       <div className="info_section">
-        <div className="created_date">{new Date().toLocaleDateString()}</div>
-        <div className="content">일기 컨텐츠</div>
+        <div className="created_date">
+          {new Date(createdDate).toLocaleDateString()}
+        </div>
+        <div className="content">{content}</div>
       </div>
       <div className="button_section">
         <Button text={"수정하기"} />
